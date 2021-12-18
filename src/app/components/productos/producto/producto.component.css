@@ -1,0 +1,25 @@
+.card{
+    width: 45rem;
+}
+img{
+    border-radius: rounded;
+}
+.fas{
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size:x-large;
+}
+.redondita{
+    border-radius: 50%;
+    box-shadow: 4px 5px 8px inset 
+    rgba(0, 0, 0, 0.294), 4px 5px 8px 
+    rgba(0, 0, 0, 0.294),-4px -5px 10px 
+    rgb(255, 255, 255), inset -4px -5px 10px 
+    rgb(255, 255, 255) ;
+    transition: 0.5s ease-in-out;
+    /* border: rounded-circle; */
+}
+.redondita:hover{
+    box-shadow: 4px 5px 8px rgba(0, 0, 0, 0.294),-4px -5px 10px rgb(203, 232, 233) ;
+}

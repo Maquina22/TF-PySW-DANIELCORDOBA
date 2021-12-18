@@ -1,0 +1,181 @@
+
+<div class="form-group col-md-4 d-grid">
+  <div routerLink="/productos/upload" class="btn btn-primary float-right">
+    Cargar Nuevo Elemento
+  </div>
+  
+</div>
+
+
+
+<div class="row">
+  <div class="col">
+    <div class="form-group col-md-12">
+      <input type="text" class="form-control mt-2" name="filtroPost" placeholder="Buscar..." [(ngModel)]="filtroPost">
+      
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-group col-md-6 mt-2 float-end">
+      <button class="btn btn-primary " (click)="prevPage()">
+        anteriores
+      </button>
+      &nbsp;
+      <button class="btn btn-primary" (click)="nextPage()" [disabled]="(Productos | filtro:filtroPost:page).length===0">
+        siguientes
+      </button>
+    </div>
+    
+  </div>
+
+  </div>
+
+  <hr>
+<div class="row" >
+ <div class="col-lg-4 col-md-4 col-xs-6" *ngFor="let producto of Productos | filtro:filtroPost:page"> 
+    <div>
+      <div class="card my-2">
+        <div class="card-header">
+          <h3 class="text-center">{{ producto.bodega }}</h3>
+        </div>
+        <div class="mx-auto">
+          <img [src]="producto.foto" alt="" class="redondita image thumbnail" />
+        </div>
+        <h4 class="text-center">{{ producto.marca }}</h4>
+        <!-- <h5 class="text-center">{{ alumno.habilidad }}</h5> -->
+        <!-- <h6 class="text-center">{{ alumno.id }}</h6> -->
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="newProducto = producto"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Detalle
+        </button>
+
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" (click)="newAlumno = alumno" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button> -->
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{newProducto.marca}}</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                
+                <form [formGroup]="formTemplate">
+                  <div class="text-center">
+                    <h6>Id: {{newProducto.id}}</h6>
+
+                    <img
+                      class="rounded-circle"
+                      [src]="newProducto.foto"
+                      alt="user"
+                      width="350px"
+                      height="350px"
+                    />
+                  </div>
+                  
+                  <div class="form-group mb-2">
+                    <input 
+                      name="bodega"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]= newProducto.bodega 
+                      formControlName="bodega"
+                      placeholder="Bodega" 
+                      
+                    />
+                  </div>                  
+                  <div class="form-group mb-2">
+                    <input
+                    name="marca"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]=newProducto.marca
+                      formControlName="marca"
+                      placeholder="Marca"
+                    />
+                  </div> 
+                  <div class="form-group mb-2">
+                    <input
+                    name="variedad"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]=newProducto.variedad
+                      formControlName="variedad"
+                      placeholder="Variedad"
+                    />
+                  </div> 
+                  <div class="form-group mb-2">
+                    <input
+                    name="varietal"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]=newProducto.varietal
+                      formControlName="varietal"
+                      placeholder="Varietal"
+                    />
+                  </div> 
+                  <div class="form-group mb-2">
+                    <input
+                    name="precio"
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]=newProducto.precio
+                      formControlName="precio"
+                      placeholder="Precio"
+                    />
+                  </div>
+
+
+                </form>
+              </div>
+              <!-- <label  [(ngModel)]=alumno.fecha formControlName="fecha" name="fecha">{{alumno.fecha | date:'medium'}}</label> -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                
+                <button 
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  (click)="addToCart(producto)"
+                >
+                  Agregar al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <i class="fas fa-edit text-info" (click)="guardarAlumno(alumno)" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"></i>
+                <i class="fas fa-trash text-danger" (click)="deleteAlumno(alumno)"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+
