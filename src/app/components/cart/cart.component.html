@@ -1,0 +1,120 @@
+<div class="card">
+    <div class="card-body">
+        
+        <div >
+            <h1 class="col" >Lista de compra</h1>           
+        </div> 
+
+          <table class="table table-hover table-striped border-info border rounded-lg border-top-0">
+            
+            <thead class="shadow-sm p-3 mb-5">
+              <tr class="bg-info text-white shadow-sm p-3 mb-5 rounded">
+                <th scope="col">#</th>
+                <th scope="col">Bodega</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Variedad</th>
+                <th scope="col">Varietal</th>                
+                <th scope="col">Imagen</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">   |   </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of ventas.productos, let numero=index ">
+                <!-- <app-items-carrito [alumnoNominado]="alumno"></app-items-carrito> -->
+                
+                <td class="col">{{numero +1}}</td>
+                <td class="col">{{item.producto.bodega}}</td>
+                <td class="col">{{item.producto.marca}}</td>
+                <td class="col">{{item.producto.variedad}}</td>
+                <td class="col">{{item.producto.varietal}}</td>
+                <td class="col">
+                    <img [src]="item.producto.foto" alt="" class="rounded" width="35px" height="35px">
+                </td>
+                <td class="col">{{item.producto.precio}}</td>
+                <td class="col">{{item.cantidad}}</td>
+                <td>
+                   <i (click)="addCarrito(item.producto)" class=" icon far fa-plus-square text-info" ></i>
+                  <i (click)="removeCarrito(item.producto)" class=" icon fas fa-minus-circle text-danger"  ></i> 
+                </td>              
+                
+            </tr>
+            </tbody>
+          </table>
+
+          <div >
+            
+            <button class="btn btn-primary float-start  my-2" (click)="enviarLista()" style="margin-bottom:10px ;" >Comprar ahora</button>
+            <h4 class="col float-end" >Total a pagar: $ {{total}} &nbsp;  |&nbsp;   Cantidad de productos: {{cantidad}} </h4>
+        </div>
+    </div>    
+</div>
+
+
+
+
+
+<!--<ng-container *ngIf="products.length !=0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Orden</th>                            
+                            <th>Bodega</th>
+                            <th>Marca</th>
+                            <th>Variedad</th>
+                            <th>Varietal</th>
+                            <th>Precio</th>
+                            <th>Imagen</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products, let i=index">
+                            <td>{{i+1}}</td>
+                                                       
+                            <td style="width: 15%;">{{item.bodega}}</td>
+                            <td style="width: 15%;">{{item.marca}}</td>
+                            <td style="width: 15%;">{{item.variedad}}</td>
+                            <td style="width: 15%;">{{item.varietal}}</td>
+                            <td style="width: 12%;">{{item.precio | currency: 'USD'}}</td>  
+                            <td>
+                                <img src="{{item.foto}}" style="width: 20px;" alt="">
+                            </td>                         
+                            <td style="width: 10%;">{{item.precio | currency: 'USD'}}</td>
+                            <td>
+                                <button (click)="removeItem(item)" class="btn btn-danger"> <i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>  
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="empyCart()" class="btn btn-danger">Vaciar carrito</button></td>
+                            <td><button routerLink="/productos/list" class="btn btn-primary">Comprar</button></td>
+                            <td><button  class="btn btn-success">Confirmar</button></td>
+                            <td><strong>Total a pagar: {{grandTotal | currency: 'USD'}}</strong></td>
+                        </tr>                      
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="products.length ===0" >
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Carrito</h5>
+        </div>
+        <div class="center">
+            <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="">
+            <h4>Tu carrito está vacío</h4>
+            <h6>Agregar un articulo al carrito</h6>
+            <button routerLink="/productos/list" class="btn btn-primary">Comprar ahora</button>
+        </div>
+    </div>
+</ng-container>-->
+

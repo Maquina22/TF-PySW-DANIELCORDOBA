@@ -1,0 +1,43 @@
+.logo{
+  text-shadow: 0px 2px 3px rgba(0,0,0,0.5),
+               0px 6px 8px rgba(0,0,0,0.1),
+               0px 12px 18px rgba(0,0,0,0.1);
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 25px;
+}
+#logo-header {
+  float: left;
+  padding: -1px 0 0 20px;
+  text-decoration: none;
+}
+#logo-header .site-name {
+  display: block;
+  font-weight: 800;
+  font-size: 1.2em;
+  color: white;
+}
+#logo-header .site-desc {
+  display: block;
+  font-weight: 300;
+  font-size: 0.8em;
+  color: gray;
+}
+.active{
+    background: 'white';
+font-size: 18px;
+    
+}
+
+.derecha {
+    display: flex;
+    float: right;
+    flex-basis: auto;
+
+
+}
+.redondita{
+  border-radius: 50%;
+
+  /* border: rounded-circle; */
+}

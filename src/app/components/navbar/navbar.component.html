@@ -1,0 +1,64 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg barraNav" >
+  <div class="container-fluid">
+    
+    <a href="#" id="logo-header">
+      
+      <span class="site-name" *ngIf="unLogueado">        
+       {{cliente.email}}
+      </span>
+      <span class=" site-desc">
+          La Vasija
+      </span>
+  </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+      <ul class="navbar-nav  ms-auto mb-2 mb-lg-0"> 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="'/'">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="'nosotros'">Quiénes somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="'productos/list'">Vinos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="'contacto'">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" *ngIf="esAdmin" aria-current="page" [routerLink]="'productos/upload'">Administración</a>
+        </li>
+        
+        <li class="nav-item" >
+          <a class="nav-link active" aria-current="page" *ngIf="!unLogueado" [routerLink]="'/login'" routerLinkActive="active">
+            <i class="fas fa-user"></i> Login</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link active" aria-current="page" [routerLink]="'/registrar'" routerLinkActive="active">
+            <i class="fas fa-user"></i> Registro</a>
+        </li>
+        <li  class="nav-item">
+          <a class="nav-link active" aria-current="page" style="cursor: pointer;" *ngIf="unLogueado" (click)="salir()" routerLink="'/'" >
+            <i class="fas fa-sign-out-alt"></i> Salir</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" style="cursor: pointer;" *ngIf="unLogueado"   routerLink="/carrito" >
+            <i style="font-size: 25px;" class="fas fa-cart-plus">
+              <span style="font-size: 11px;" class="position-absolute  top-10 start-10 translate-middle badge rounded-pill bg-danger">
+                {{cantidadProductos}}
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </i>
+           
+          </a>
+          
+        </li>
+
+      </ul>
+      
+    </div>
+  </div>
+</nav>
