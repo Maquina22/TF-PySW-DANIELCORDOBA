@@ -91,6 +91,7 @@ export class NavbarComponent implements OnInit {
   getCantidad() { 
     this.cantidadProductos = 0;
     this.cantidadProductos = this.ventas.productos.length;
+    console.log(this.cantidadProductos);
   }
 
 

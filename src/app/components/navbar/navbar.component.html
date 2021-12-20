@@ -37,7 +37,7 @@
             <i class="fas fa-user"></i> Login</a>
         </li>
         <li  class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="'/registrar'" routerLinkActive="active">
+          <a class="nav-link active" *ngIf="!unLogueado" aria-current="page" [routerLink]="'/registrar'" routerLinkActive="active">
             <i class="fas fa-user"></i> Registro</a>
         </li>
         <li  class="nav-item">

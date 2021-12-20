@@ -66,7 +66,7 @@ export class CartService {
       this.firestoreService.getDoc<Cliente>(path, this.uid).subscribe((res) => {
         if (res != undefined) {
           this.cliente = res as Cliente;
-          this.loadCarrito();
+          this.loadCarrito();          
         }
       });
     }
